@@ -25,7 +25,7 @@ router.get('/hello', function (req, res){
     console.log(arr3)
     let obj = lodash.fromPairs([['Horror' , 'The Shining'] , ['Drama' , 'Titanic'] , ['Thriller' , 'Shutter Island'] , ['Fantasy' , 'Pans Labyrinth']])
     console.log(obj) 
-    res.send('My first ever api!')
+    res.send('This is my new api!')
 });
 
 
