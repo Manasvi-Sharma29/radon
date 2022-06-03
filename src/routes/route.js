@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const nodemon = require('nodemon')
 
 router.get('/students/:name', function(req, res) {
     let studentName = req.params.name
@@ -69,5 +70,46 @@ router.post("/test-post-4", function(req, res) {
     arr.push(ele)
     res.send(  { msg: arr , status: true }  )
 })
+
+// ASSIGNMENT
+
+let players = [
+                {
+                    "name" :"manish",
+                    "dob" :"1/1/1995",
+                    "gender" :"male",
+                    "city" : "jalandhar",
+                    "sports" : ["swimming"]
+                },
+                {
+                    "name" :"gopal",
+                    "dob" :"1/09/1995",
+                    "gender" :"male",
+                    "city" :"delhi",
+                    "sports" :["soccer"]
+                },
+                {
+                    "name" :"lokesh",
+                    "dob" :"1/1/1990",
+                    "gender" :"male",
+                    "city" :"mumbai",
+                    "sports" :["soccer"]
+                }                
+                ]
+
+router.post('/players', function(req,res){
+   
+    for(i=0 ; i<players.length ; i++){
+        let nameNew = req.body.name
+        let newPlayer = req.body
+         if(nameNew !== players[i].name){
+            players.push(newPlayer)
+            res.send(players)      
+         }
+         break;
+    }
+    res.send('ERROR: Duplicacy exist')
+ })
+
 
 module.exports = router;
