@@ -110,6 +110,33 @@ router.post('/players', function(req,res){
     }
     res.send('ERROR: Duplicacy exist')
  })
+router.get('/sol1' , function (req,res){
+    let arr = [1,2,3,5,6,7]
+    let sum = 0;
+    for(i=0 ; i<arr.length ; i++){
+        sum += arr[i];
+    }
+    let lastDigit = arr.pop()
+    let consecutiveSum = lastDigit * (lastDigit+1) / 2
+    let missingNumber = consecutiveSum - sum
+    res.send({data: missingNumber});
+})
 
+router.get('/sol2', function(req,res){
+    let arr = [33, 34, 35, 37, 38]
+    let len = arr.length
+    let sum = 0;
+    for(i=0 ; i<arr.length ; i++){
+        sum += arr[i]
+    }
+    let firstDigit = arr[0]
+    let lastDigit = arr.pop()
+    let consecutiveSum = (len + 1) * (firstDigit + lastDigit)/ 2
+    let missingNumber = consecutiveSum - sum
+    res.send({data: missingNumber});
+})
+
+
+ 
 
 module.exports = router;
