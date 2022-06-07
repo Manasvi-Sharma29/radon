@@ -3,49 +3,8 @@ const BookModel= require("../models/bookModel")
 const AuthorModel = require("../models/authorModel")
 const bookModel = require("../models/bookModel")
 
-// ASSIGNMENT
 
-// const createBook = async function(req,res){
-//     let data = req.body
-//     let savedData = await BookModel.create(data)
-//     res.send({msg: savedData})
-// }
-
-// const bookList = async function(req, res){
-//     let savedData = await BookModel.find().select({"bookName":1, "authorName":1, "_id":0})
-//     res.send({msg: savedData})
-// }
-
-// const getBooksInYear = async function(req, res){
-//     let savedData = await BookModel.find({year: 2021})
-//     res.send({msg: savedData})
-// }
-
-// const particularBooks = async function(req, res){
-//     let data = req.body
-//     let savedData = await BookModel.find(data)
-//     res.send({msg: savedData})
-// }
-
-// const getXINRBooks = async function(req, res){
-//     let savedData = await BookModel.find({"bookPrice.indianPrice":{$in:[100,200,500]}})
-//     res.send({msg: savedData})
-// }
-
-// const randomBooks = async function(req, res){
-//     let savedData = await BookModel.find({$or:[{"stockAvailable": true}, {"totalPages":{$gt : 500}}]})
-//     res.send({msg:savedData})
-// }
-
-// module.exports.createBook = createBook
-// module.exports.bookList = bookList
-// module.exports.getBooksInYear = getBooksInYear
-// module.exports.particularBooks = particularBooks
-// module.exports.getXINRBooks = getXINRBooks
-// module.exports.randomBooks = randomBooks 
-
-
-// ASSIGNMENT
+// ASSIGNMENT 3MONGO
 
 const createBook = async function(req, res){
     let allBook = req.body
