@@ -74,9 +74,14 @@ const priceUpdate = async function(req, res){
 }
 
 const bookFind = async function(req, res){
-    let bookRange = await bookModel.find({price:{$lte:50, $gte:100}}).select({author_id:1})
-    let authorName = await AuthorModel.find({author_id: bookRange[0].author_id}).select({author_name:1})
-    res.send({msg:authorName})
+    let bookRange = await bookModel.find({price:{$lte:50, $gte:100}})
+    let arr = []
+    for (let i=0; i<bookRange.length ; i++){
+        let authorName = await AuthorModel.find({author_id: bookRange[i].author_id}).select({author_name:1, author_id:1, _id:0})
+        arr.push(authorName)
+    }
+    res.send({msg:arr})
+    
 }
 
 
