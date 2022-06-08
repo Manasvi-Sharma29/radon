@@ -48,8 +48,8 @@ const authorList = async function(req, res){
     let author = await AuthorModel.find({age:{$gt:50}}).select({age:1, author_name:1, author_id:1})
     let book = await BookModel.find({ratings:{$gt:4}}).select({ratings:1, author_id:1})
     let arr = []
-    for(i=0; i<5; i++){
-        for(j=0; j<2; j++){
+    for(i=0; i<book.length; i++){
+        for(j=0; j<author.length; j++){
             if(book[i].author_id == author[j].author_id && book[i].ratings){
                 arr.push(author[j].author_name , author[j].age)
             }
