@@ -14,6 +14,6 @@ const orderSchema = mongoose.Schema({
     amount: Number,
     isFreeAppUser: Boolean,
     date: String
-})
+},{timestamps: true})
 
 module.exports = mongoose.model('myOrder',orderSchema)
