@@ -60,7 +60,7 @@ router.get("/test-me", function (req, res) {
 
 router.post("/createProduct", productController.createProduct)
 router.post("/createUser", commonMW.mid1, userController.createUser)
-router.post("/createOrder", commonMW.mid1, commonMW.mid2, orderController.createOrder)
+router.post("/createOrder", commonMW.mid1, commonMW.mid2, commonMW.mid3, orderController.createOrder)
 
 
 module.exports = router;
