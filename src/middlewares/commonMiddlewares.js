@@ -5,11 +5,17 @@ const productModel = require("../models/productModel")
 const userModel = require("../models/userModel")
 
 const mid1 = function(req, res, next){
-    if(req.headers.isfreeappuser){
+    let header = req.headers["isFreeAppUser"]
+    if(!header){
+        header = req.headers["isfreeappuser"]
         next()
-    }else{
+    }
+    if(!header){
         res.send({msg: "The request is missing a mandatory header"})
     }
+}
+const mid2 = async function(req, res, next){
+    
 }
 
 

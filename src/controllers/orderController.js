@@ -19,12 +19,13 @@ const createOrder = async function(req, res,){
             res.send({msg: "user id is not valid"})   
         }
     }
-    if(req.header['isfreeappuser'] == 'true'){
+    let header = false
+    if(req.headers['isfreeappuser'] == 'true'){
         req.body.amount = 0
         req.body.isFreeAppUser = req.header.isfreeappuser
     }else if(productId.price <= 100){
             req.body.amount = productId.price
-            let newBal = await productModel.updateOne({_id:idNew2},{$inc: {balance: checkPrice.price * -1}})
+            let newBal = await productModel.findOneAndUpdate({_id:idNew2},{$inc: {balance: -1}})
             let amt = req.body.amount
             amt = productId.price
             req.body.isFreeAppUser = req.header.isfreeappuser
