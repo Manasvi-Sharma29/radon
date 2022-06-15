@@ -17,4 +17,16 @@ const mid1 = async function(req,res,next){
     }
 }
 
+
+const mid2 = async function(req,res,next){
+    let token = req.headers['x-auth-token'];
+    let decodedToken = jwt.verify(token, "functionup-radon");
+    let userToBeModified = req.params.userId;
+    let userLoggedIn = decodedToken.userId;
+    if(userToBeModified !== userLoggedIn){
+        res.send({status: false, msg: "the loggedin user is not authorised to make the changes in requested user data"})
+    }
+    next()
+}
 module.exports.mid1 = mid1
+module.exports.mid2 = mid2
