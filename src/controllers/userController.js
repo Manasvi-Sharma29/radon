@@ -127,7 +127,7 @@ const deleteUser = async function(req, res){
 
 const writePostMessage = async function( req, res){
   try{
-      // let message = req.body.message
+      let message = req.body.message
       let userId = req.params.userId
       let user = await userModel.findById(userId)
       if(!user){
