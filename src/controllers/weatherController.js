@@ -11,7 +11,7 @@ const getWeather = async function (req, res){
             let weather = {
                             method:"get",
                             url: `http://api.openweathermap.org/data/2.5/weather?q=${city[i]}&appid=${appid}`
-            }
+                          }
             let result = await axios(weather)
             let data = result.data.main.temp
             let name = result.data.name
@@ -19,7 +19,7 @@ const getWeather = async function (req, res){
             console.log(result)
             
     }
-    place.sort((a, b) => a.temp - b.temp);
+    let sorted = place.sort(function(a,b){a.temp - b.temp})
     res.status(200).send({place})
 }
     catch(error){
