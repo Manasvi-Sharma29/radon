@@ -20,7 +20,7 @@ const createOrder = async function(req, res,){
         }
     }
     let header = false
-    if(req.headers['isfreeappuser'] == 'true'){
+    if(req.isFreeAppUser == 'true'){
         req.body.amount = 0
         req.body.isFreeAppUser = req.header.isfreeappuser
     }else if(productId.price <= 100){
