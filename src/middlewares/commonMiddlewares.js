@@ -9,7 +9,7 @@ const mid1 = function(req, res, next){
     if(!header){
         res.send({msg: "The request is missing a mandatory header"})
     }
-    req.isFreeAppUser = isfreeappuser;
+    req.isFreeAppUser = header;
     next();
 }
 
